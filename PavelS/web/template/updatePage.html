@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<h1>Update form</h1>
+<form method="POST" action="/{{.Book.Id}}/update">
+    <input type="text" name="name" placeholder="{{.Book.Name}}"><br>
+    <input type="text" name="price" placeholder="{{.Book.Price}}"><br>
+    <input type="text" name="amount" placeholder="{{.Book.Amount}}"><br>
+    <label for="genres">Enter genre:</label>
+    <select name="genre" id="genres">
+        {{range .ListGenres}}
+            <option>{{.}}</option>
+        {{end}}
+    </select> <br>
+    <button type="submit">Update</button>
+</form>
+<a href="/">Back to the main page</a>
+</body>
+</html>

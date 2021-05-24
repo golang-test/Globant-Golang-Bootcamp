@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Name}}</title>
+</head>
+<body>
+<h1>INFO</h1>
+<h3>Id: {{.Id}}</h3>
+<h3>Name: {{.Name}}</h3>
+<h3>Price: {{.Price}}</h3>
+<h3>Genre: {{.Amount}}</h3>
+<h3>Amount: {{.Amount}}</h3>
+
+
+<a href=/{{.Id}}/update>Update this book</a>
+
+<form method="POST" action=/{{.Id}}/delete>
+    <button onclick="del()" type="submit">Delete this book</button>
+</form>
+
+<script>
+    function del() {
+        alert("Book {{.Name}} has been deleted");
+    }
+</script>
+
+<a href="/">Back to the main page</a>
+</body>
+</html>

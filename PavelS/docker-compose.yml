@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'bookstore_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'mysql'
+      MYSQL_PASSWORD: 'mysql'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+
