@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available books</title>
+</head>
+<body>
+<h1>Available books</h1>
+
+<table>
+    <thead><th>Id</th><th>Name</th><th>Price</th><th>Genre</th><th>Amount</th><th>Info</th></thead>
+    {{range .Books }}
+        <tr>
+            <td>{{.Id}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Genre}}</td>
+            <td>{{.Amount}}</td>
+            <td>
+                <a href=/{{.Id}}> More detailed </a>
+            </td>
+        </tr>
+    {{end}}
+</table>
+<h1>Search books</h1>
+<h3>Find by id</h3>
+<form method="POST" action="/find_by_id">
+    <input type="text" name="id" placeholder="enter id">
+    <button type="submit">Search</button>
+</form>
+<br>
+<h3>Find by name</h3>
+<form method="POST" action="/find_by_name">
+    <input type="text" name="name" placeholder="enter name">
+    <button type="submit">Search</button>
+</form>
+<br>
+<h3>Filter by price</h3>
+<form method="POST" action="/filter_by_price">
+<input type="text" name="min" placeholder="enter the minimum price">
+<input type="text" name="max" placeholder="enter the maximum price">
+<button type="submit">Search</button>
+</form>
+<br>
+<h3>Filter by genre</h3>
+<form method="POST" action="/filter_by_genre">
+    <label for="genres">Select a genre:</label>
+    <select name="genre" id="genres">
+        {{range .ListGenres}}
+            <option>{{.}}</option>
+        {{end}}
+    </select> <br>
+    <button type="submit">Search</button>
+</form>
+<br>
+<a href="/">Back to the main page</a><br>
+<a href="/create">Adding books</a><br>
+</body>
+</html>
+

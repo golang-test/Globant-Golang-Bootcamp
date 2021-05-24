@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<h1>Data filling form</h1>
+<form method="POST" action="/save">
+    <input type="text" name="name" placeholder="name"><br>
+    <input type="text" name="price" placeholder="price"><br>
+    <input type="text" name="amount" placeholder="amount"><br>
+    <label for="genres">Enter genre:</label>
+    <select name="genre" id="genres">
+        {{range .ListGenres}}
+            <option>{{.}}</option>
+        {{end}}
+    </select> <br>
+    <button type="submit">Save</button>
+</form>
+
+
+<a href="/">Back to the main page</a>
+</body>
+</html>

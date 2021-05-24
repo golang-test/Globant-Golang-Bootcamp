@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Found books</title>
+</head>
+<body>
+<h1>Found books</h1>
+
+<table>
+    <thead><th>Id</th><th>Name</th><th>Price</th><th>Genre</th><th>Amount</th><th>Info</th></thead>
+    {{range . }}
+        <tr>
+            <td>{{.Id}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Genre}}</td>
+            <td>{{.Amount}}</td>
+            <td>
+                <a href=/{{.Id}}> More detailed <a/>
+            </td>
+        </tr>
+    {{end}}
+</table>
+<a href="/search">Back</a><br>
+</body>
+</html>
