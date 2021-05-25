@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  database:
+    restart: always
+    build:
+      context: ./Database
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "123"
+    container_name: db
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+  server:
+    build:
+      context: ./Server/
+      dockerfile: Dockerfile
+    container_name: server
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "123"
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+volumes:
+  data:
+  
